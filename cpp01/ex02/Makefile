@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hefurrer <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/10 11:45:44 by hefurrer          #+#    #+#              #
-#    Updated: 2024/01/10 11:46:01 by hefurrer         ###   ########.fr        #
+#    Created: 2024/01/10 11:46:59 by hefurrer          #+#    #+#              #
+#    Updated: 2024/01/10 11:47:17 by hefurrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,18 +17,15 @@ COLOUR_END=\033[0m
 COLOUR_YELLOW=\033[0;33m
 COLOUR_CYAN=\033[0;36m
 
-NAME	= zombieHorde
+NAME	= HITHISISBRAIN
 
 RM				= rm -rf
 
-SRC				=	main.cpp						\
-					zombieHorde.cpp					\
-					Zombie.cpp
+SRC				=	main.cpp
 
 DIRS			= objs
-HEADERS			= includes
 OBJS			= ${SRC:.cpp=.o}
-CFLAGS 			= -I $(HEADERS) -Werror -Wextra -Wall -std=c++98
+CFLAGS 			= -I -Werror -Wextra -Wall -std=c++98
 _OBJS			= $(addprefix $(DIRS)/, $(OBJS))
 
 

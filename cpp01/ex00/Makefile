@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hefurrer <marvin@42lausanne.ch>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/01/10 11:44:37 by hefurrer          #+#    #+#              #
+#    Updated: 2024/01/10 11:44:44 by hefurrer         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 COLOUR_GREEN=\033[0;32m
 COLOUR_RED=\033[0;31m
 COLOUR_ORANGE=\033[0;34m
@@ -25,14 +37,15 @@ all: ${NAME}
 
 ${NAME}: ${_OBJS}
 			@echo "$(COLOUR_CYAN)Compile..."
-			g++ ${CFLAGS} $(_OBJS) -o $@
+			c++ ${CFLAGS} $(_OBJS) -o $@
 ${DIRS}/%.o: %.cpp
 		@mkdir -p $(DIRS)
-		g++ $(CFLAGS) -c $< -o $@ -g3
+		c++ $(CFLAGS) -c $< -o $@ -g3
 clean:
 			$(RM) ${_OBJS}
 
 fclean:		clean
 			$(RM) $(NAME) *.a
+			rm -rf $(DIRS)
 
 re:			fclean all

@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hefurrer <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 11:46:43 by hefurrer          #+#    #+#             */
-/*   Updated: 2024/01/10 11:46:45 by hefurrer         ###   ########.fr       */
+/*   Created: 2024/01/17 12:46:27 by hefurrer          #+#    #+#             */
+/*   Updated: 2024/01/17 12:46:29 by hefurrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-#include <iostream>
+#include "includes/Fixed.hpp"
 
-class Zombie
+int main( void ) 
 {
-	public:
-		void	annonce(void) const;
-		void	setname(std::string name);
+	Fixed a;
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-		Zombie(void);
-		Zombie(std::string name);
-		~Zombie(void);
-	private:
-		std::string	_name;
-};
+	std::cout << b << std::endl;
 
-Zombie	*zombieHorde(int N, std::string name);
+	std::cout << Fixed::max( a, b ) << std::endl;
 
-#endif
+	return (0);
+}

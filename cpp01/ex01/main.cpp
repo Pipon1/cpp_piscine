@@ -1,16 +1,50 @@
-#include "includes/Zombie.hpp"
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hefurrer <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/10 11:46:29 by hefurrer          #+#    #+#             */
+/*   Updated: 2024/01/10 11:46:30 by hefurrer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	main(int ac, char **av)
+#include "includes/Zombie.hpp"
+
+std::string	safe_getline(void)
 {
-	std::string zom = "zombie horde goons";
-	int	count;
-	if (ac != 2)
+	std::string	prompt;
+
+	std::cout << "Enter a name for your Zombie:" << std::endl;
+	while (1)
 	{
-		std::cout << "pls input the amount of zombie desiered" << std::endl;
-		return 1;
+		std::cout << "> ";
+		std::getline(std::cin, prompt);
+		if (std::cin.fail() == true)
+		{
+			std::cout << "Error of the input, closing program!" << std::endl;
+			exit (0);
+		}
+		else if (prompt.length() == 0)
+			std::cout << "No blank field please!" << std::endl;
+		else if (prompt.length() > 0)
+			break ;
 	}
-	count = atoi(av[1]);
-	zombieHorde(count, zom);
-	return 0;
+	return (prompt);
+}
+
+int	main(void)
+{
+	int		number = 5;
+	Zombie	*z;
+
+	z = zombieHorde(number, safe_getline());
+	std::cout << "pointer *z : " << &*z << std::endl;
+	for (int i = 0; i < number; i++)
+		std::cout << "pointer z[" << i << "] : " << &z[i] << std::endl;
+	for (int i = 0; i < number; i++)
+		z[i].annonce();
+	delete []z;
+	return (0);
 }

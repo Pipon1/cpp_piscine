@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hefurrer <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/10 11:45:44 by hefurrer          #+#    #+#              #
-#    Updated: 2024/01/10 11:46:01 by hefurrer         ###   ########.fr        #
+#    Created: 2024/01/10 11:54:37 by hefurrer          #+#    #+#              #
+#    Updated: 2024/01/10 11:54:49 by hefurrer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,12 @@ COLOUR_END=\033[0m
 COLOUR_YELLOW=\033[0;33m
 COLOUR_CYAN=\033[0;36m
 
-NAME	= zombieHorde
+NAME	= Harl2.0
 
 RM				= rm -rf
 
 SRC				=	main.cpp						\
-					zombieHorde.cpp					\
-					Zombie.cpp
+					Harl.cpp
 
 DIRS			= objs
 HEADERS			= includes
